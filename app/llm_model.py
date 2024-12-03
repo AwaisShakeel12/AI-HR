@@ -1,6 +1,6 @@
 import google.generativeai as genai
 
-genai.configure(api_key='AIzaSyDFRjqJh9PUrBXclbyICiNGfaKZ3Om6Lu0')
+genai.configure(api_key='')
 
 def get_gemini_response(input, pdf_content, prompt):
     model = genai.GenerativeModel('gemini-1.5-flash')
