@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-HR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Left Panel */
+       
+        .left-panel {
+            width: 40%;
+            background: linear-gradient(135deg, #056ae6, #efeef7, #11aeec);
+            background-size: 400% 400%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: gradientMovement 10s ease infinite;
+        }
+
+        /* Animated Text */
+        .title {
+            font-size: 3rem;
+            color: white;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 50%;
+            width: 100%;
+            margin-top: -50px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: black;
+        }
+
+        .title span {
+            opacity: 0;
+            display: inline-block;
+            animation: fallLetter 8s infinite;
+        }
+
+        /* Delay for each letter */
+        .title span:nth-child(1) { animation-delay: 0.2s; }
+        .title span:nth-child(2) { animation-delay: 0.4s; }
+        .title span:nth-child(3) { animation-delay: 0.6s; }
+        .title span:nth-child(4) { animation-delay: 0.8s; }
+        .title span:nth-child(5) { animation-delay: 1s; }
+        .title span:nth-child(6) { animation-delay: 1.2s; }
+        .title span:nth-child(7) { animation-delay: 1.4s; }
+        .title span:nth-child(8) { animation-delay: 1.6s; }
+        .title span:nth-child(9) { animation-delay: 1.8s; }
+        .title span:nth-child(10) { animation-delay: 2s; }
+        .title span:nth-child(11) { animation-delay: 2.2s; }
+        .title span:nth-child(12) { animation-delay: 2.4s; }
+        .title span:nth-child(13) { animation-delay: 2.6s; }
+
+        @keyframes gradientMovement {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Falling Animation */
+        @keyframes fallLetter {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            40% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+
+        .bubbles {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateBubbles 8s linear infinite;
+            
+            border-radius: 40%;
+           
+          }
+          
+          .bubbles-2{
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 50%;
+            left: 50%;
+            transform: translate(50%, 50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateBubbles 4s linear infinite;
+            border-radius: 40%;
+           
+          }
+          
+          .bubble {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+          }
+          .bbl2{
+         
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 165, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 165, 255, 0.6);
+            animation: float 5s infinite ease-in-out;
+          }
+          
+          /* Calculate the angle for each bubble */
+          .bubble:nth-child(1) { transform: rotate(0deg) translate(150px); animation-delay: 0s; background-color: green; }
+          .bubble:nth-child(2) { transform: rotate(24deg) translate(150px); animation-delay: 0.2s; background-color: yellow; }
+          .bubble:nth-child(3) { transform: rotate(48deg) translate(150px); animation-delay: 0.4s; background-color: red; }
+          .bubble:nth-child(4) { transform: rotate(72deg) translate(150px); animation-delay: 0.6s; background-color: #6a11cb; }
+          .bubble:nth-child(5) { transform: rotate(96deg) translate(150px); animation-delay: 0.8s; background-color: white; }
+          .bubble:nth-child(6) { transform: rotate(120deg) translate(150px); animation-delay: 1s; background-color: orange; }
+          .bubble:nth-child(7) { transform: rotate(144deg) translate(150px); animation-delay: 1.2s; background-color: aquamarine; }
+          .bubble:nth-child(8) { transform: rotate(168deg) translate(150px); animation-delay: 1.4s; background-color: blueviolet; }
+          .bubble:nth-child(9) { transform: rotate(192deg) translate(150px); animation-delay: 1.6s; background-color: palevioletred; }
+          .bubble:nth-child(10) { transform: rotate(216deg) translate(150px); animation-delay: 1.8s; background-color: yellowgreen; }
+          .bubble:nth-child(11) { transform: rotate(240deg) translate(150px); animation-delay: 2s; background-color: navy; }
+          .bubble:nth-child(12) { transform: rotate(264deg) translate(150px); animation-delay: 2.2s; background-color: coral; }
+          .bubble:nth-child(13) { transform: rotate(288deg) translate(150px); animation-delay: 2.4s; background-color: teal; }
+          .bubble:nth-child(14) { transform: rotate(312deg) translate(150px); animation-delay: 2.6s; background-color: magenta; }
+          .bubble:nth-child(15) { transform: rotate(336deg) translate(150px); animation-delay: 2.8s; background-color: mediumspringgreen; }
+          
+          @keyframes rotateBubbles {
+            0% {
+              transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+              transform: translate(-50%, -50%) rotate(360deg);
+            }
+          }
+
+     
+
+
+        .awais{
+            margin-top: 100px;
+            font-size: 30px;
+            margin-left: -120px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+          
+            
+            
+           
+        }
+      
+
+        /* Right Panel */
+        .right-panel {
+            width: 60%;
+            padding: 40px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+
+        .right-panel h1 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Input Section */
+        .chatbot-input {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chatbot-input input {
+            padding: 12px 15px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            background: #f9f9f9;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbot-input input:focus {
+            border-color: #0078ff;
+            box-shadow: 0 4px 20px rgba(0, 120, 255, 0.4);
+        }
+
+        .chatbot-input button {
+            grid-column: span 2;
+            padding: 15px 30px;
+            border: none;
+            background: linear-gradient(135deg, #00a5ff, #0078ff);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .chatbot-input button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 120, 255, 0.6);
+        }
+
+
+
+        .chatbot-output {
+            padding: 20px;
+            background: #f9f9f9;
+            color: #333;
+            border-radius: 15px;
+            height: 60%;
+            overflow-y: auto;
+            word-wrap: break-word;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ddd;
+            transition: border-color 0.3s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .chatbot-output:hover {
+            border-color: #0078ff;
+        }
+
+        .chatbot-output::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chatbot-output::-webkit-scrollbar-thumb {
+            background: #00a5ff;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+
+            .right-panel h1 {
+                font-size: 2rem;
+            }
+
+            .chatbot-input input {
+                font-size: 0.9rem;
+            }
+
+            .chatbot-input button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="title">
+                <span>A</span>
+                <span>I</span>
+                <span>-</span>
+                <span>H</span>
+                <span>R</span>
+              
+
+               <div class="awais">
+                <span>A</span>
+                <span>S</span>
+                <span>S</span>
+                <span>I</span>
+                <span>S</span>
+                <span>T</span>
+                <span>A</span>
+                <span>N</span>
+                <span>T</span>
+            </div>
+            
+                
+            </div>
+            <div class="bubbles">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+            <div class="bubbles-2">
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+                <div class="bubble bbl2"></div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <h1>Start Hiring</h1>
+
+            <div class="chatbot-output">
+                <!-- Chat output will appear here -->
+                 <pre style="font-size: 20px;">{{job_description}}</pre>
+                
+               
+            </div>
+            <form class="chatbot-input" method="post">
+                {% csrf_token %}
+                <input type="text" name="date" placeholder="Interview Date">
+                <input type="text" name="time" placeholder="Inteview Time">
+                <input type="checkbox" style="box-shadow: none; margin-left: -80%;" name="hiring" value="on" id="">
+         
+                <button>Start Hiring</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hiring</title>
+</head>
+<body>
+    
+    <h1>hiring</h1>
+
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="company" placeholder="company name">
+            <input type="text" name="job_title" placeholder="job title">
+            <input type="text" name="experience" placeholder="experience">
+            <input type="text" name="education" placeholder="education">
+            <input type="text" name="job_type" placeholder="job type">
+            <input type="text" name="salary" placeholder="salary">
+            <input type="text" name="skills" placeholder="required skills">
+            <input type="text" name="prefer_skill" placeholder="good to have">
+            <input type="text" name="benifits" placeholder="benifits">
+
+        
+
+
+
+            <button type="submit">create</button>
+        </form>
+
+
+
+    </div>
+
+    <div>
+        {% if cleaned_text %}
+           <p>{{cleaned_text}}</p>
+        {% endif %}
+      
+    </div>
+
+</body>
+</html>
